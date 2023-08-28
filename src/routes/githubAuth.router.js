@@ -29,7 +29,7 @@ githubRouter.get('/auth',passport.authenticate('github',{
 githubRouter.get('/auth/callback',passport.authenticate('github',{
     failureRedirect: "/failure",
     successRedirect: "/",
-    session: false
+    // session: false
 }));
 
 module.exports = githubRouter;

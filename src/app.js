@@ -1,15 +1,32 @@
 const express = require('express');
 const helmet = require('helmet');
 const path = require('path');
+const cookieSession = require('cookie-session');
 const googleAuthRouter = require('./routes/googleAuth.router');
 const secretRouter = require('./routes/secret.router');
 const githubRouter = require('./routes/githubAuth.router');
 const facebookRouter = require('./routes/facebookAuth.router');
 const linkedinRouter = require('./routes/linkedinAuth.router');
 const discordRouter = require('./routes/discordAuth.router');
+const passport = require('passport');
 
 const app = express();
 app.use(helmet());
+app.use(cookieSession({
+    name: 'session',
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [ 'panda', 'pandashutup' ]
+}));
+
+//Save the session to the cookie
+passport.serializeUser((user, done)=>{
+    done(null,user.id);
+});
+//Read the session from the cookie
+passport.deserializeUser((obj,done)=>{
+    done(null, obj);
+})
+app.use(passport.session());
 
 app.use('/google',googleAuthRouter);
 

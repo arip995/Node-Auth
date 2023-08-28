@@ -32,7 +32,7 @@ googleAuthRouter.get('/auth', passport.authenticate('google', {
 googleAuthRouter.get('/auth/callback', passport.authenticate('google',{
     failureRedirect: "/failure",
     successRedirect: "/",
-    session: false
+    session: true
 }), (req,res)=>{});
 
 module.exports = googleAuthRouter;

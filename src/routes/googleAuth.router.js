@@ -29,7 +29,7 @@ googleAuthRouter.get('/auth', passport.authenticate('google', {
     scope: ['email','profile']
 }));
 
-googleAuthRouter.get('/auth/callback', passport.authenticate('google',{
+googleAuthRouter.get('https://node-auth-v9uz.onrender.com/google/auth/callback', passport.authenticate('google',{
     failureRedirect: "/failure",
     successRedirect: "https://test-five-blond-10.vercel.app/",
     session: true

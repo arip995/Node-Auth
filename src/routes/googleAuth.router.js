@@ -33,7 +33,9 @@ googleAuthRouter.get('/auth/callback', passport.authenticate('google',{
     failureRedirect: "/failure",
     successRedirect: "https://test-five-blond-10.vercel.app/",
     session: true
-}), (req,res)=>{});
+}), (req,res)=>{
+    res.send({name: "Panda"})
+});
 
 googleAuthRouter.get('/auth/logout', (req,res)=>{
     req.logOut();

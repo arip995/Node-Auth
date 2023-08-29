@@ -9,7 +9,7 @@ const config = {
 const AUTH_OPTIONS = {
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
-    callbackURL: "/google/auth/callback",
+    callbackURL: "https://node-auth-v9uz.onrender.com/google/auth/callback",
 }
 
 function verifyCallback(accessToken, refreshToken, profile, done) {
@@ -33,9 +33,7 @@ googleAuthRouter.get('/auth/callback', passport.authenticate('google',{
     failureRedirect: "/failure",
     successRedirect: "https://test-five-blond-10.vercel.app/",
     session: true
-}), (req,res)=>{
-    res.send({name: "Panda"})
-});
+}), (req,res)=>{});
 
 googleAuthRouter.get('/auth/logout', (req,res)=>{
     req.logOut();

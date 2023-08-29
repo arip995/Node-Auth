@@ -40,4 +40,8 @@ googleAuthRouter.get('/auth/logout', (req,res)=>{
     res.redirect('/')
 });
 
+googleAuthRouter.get('/', (req,res)=>{
+    res.status(200).json({name: "panda"})
+});
+
 module.exports = googleAuthRouter;

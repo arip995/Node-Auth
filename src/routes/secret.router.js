@@ -12,4 +12,8 @@ secretRouter.get('/',(req,res) => {
     }
 });
 
+secretRouter.get('/a',(req,res) => {
+    res.send({name: "madarchod"})
+});
+
 module.exports = secretRouter;

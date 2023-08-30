@@ -27,6 +27,7 @@
     "passport-gitlab2": "^5.0.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-linkedin": "^1.0.0",
-    "passport-linkedin-oauth2": "^2.0.0"
+    "passport-linkedin-oauth2": "^2.0.0",
+    "passport-twitter": "^1.0.4"
   }
 }

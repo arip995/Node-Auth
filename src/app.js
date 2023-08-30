@@ -10,6 +10,7 @@ const facebookRouter = require('./routes/facebookAuth.router');
 const linkedinRouter = require('./routes/linkedinAuth.router');
 const discordRouter = require('./routes/discordAuth.router');
 const gitlabRouter = require('./routes/gitlabAuth.router');
+const twitterRouter = require('./routes/twitterAuth.router');
 const passport = require('passport');
 
 const app = express();
@@ -51,6 +52,8 @@ app.use('/linkedin',linkedinRouter);
 app.use('/discord',discordRouter);
 
 app.use('/gitlab', gitlabRouter);
+
+app.use('/twitter', twitterRouter);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'..', 'public', 'index.html'));

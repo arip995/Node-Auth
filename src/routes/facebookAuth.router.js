@@ -30,7 +30,7 @@ facebookRouter.get('/auth',passport.authenticate('facebook',{
 
 facebookRouter.get('/auth/callback',passport.authenticate('facebook',{
     failureRedirect: "/failure",
-    successRedirect: "/",
+    successRedirect: "http://localhost:3000",
     session: false
 }));
 

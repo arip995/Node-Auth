@@ -31,9 +31,11 @@ googleAuthRouter.get('/auth', passport.authenticate('google', {
 
 googleAuthRouter.get('/auth/callback', passport.authenticate('google',{
     failureRedirect: "/failure",
-    successRedirect: "/",
+    // successRedirect: "http://localhost:3000",
     session: true
-}), (req,res)=>{});
+}), (req,res)=>{
+    res.redirect('http://localhost:3000')
+});
 
 googleAuthRouter.get('/auth/logout', (req,res)=>{
     req.logOut();

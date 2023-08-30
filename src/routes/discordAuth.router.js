@@ -27,7 +27,7 @@ discordRouter.get('/auth',passport.authenticate('discord'));
 
 discordRouter.get('/auth/callback',passport.authenticate('discord',{
     failureRedirect: "/failure",
-    successRedirect: "/",
+    successRedirect: "http://localhost:3000",
     session: false
 }));
 

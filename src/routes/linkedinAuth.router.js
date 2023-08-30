@@ -27,7 +27,7 @@ linkedinRouter.get('/auth',passport.authenticate('linkedin'));
 
 linkedinRouter.get('/auth/callback',passport.authenticate('linkedin',{
     failureRedirect: "/failure",
-    successRedirect: "/",
+    successRedirect: "http://localhost:3000",
     session: false
 }));
 

@@ -28,7 +28,7 @@ gitlabRouter.get('/auth',passport.authenticate('gitlab',{
 
 gitlabRouter.get('/auth/callback',passport.authenticate('gitlab',{
     failureRedirect: "/failure",
-    successRedirect: "/",
+    successRedirect: "http://localhost:3000",
     // session: false
 }));
 

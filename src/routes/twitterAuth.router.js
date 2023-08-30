@@ -29,7 +29,7 @@ twitterRouter.get('/auth',passport.authenticate('twitter',{
 
 twitterRouter.get('/auth/callback',passport.authenticate('twitter',{
     failureRedirect: "/failure",
-    successRedirect: "/",
+    successRedirect: "http://localhost:3000",
     session: false
 }));
 

@@ -11,7 +11,7 @@ const config = {
 const AUTH_OPTIONS = {
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
-    callbackURL: "https://localhost:8000/github/auth/callback",
+    callbackURL: "/github/auth/callback",
 }
 
 function verifyCallback(accessToken, refreshToken, user, done) {

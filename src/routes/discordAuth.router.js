@@ -11,7 +11,7 @@ const config = {
 const AUTH_OPTIONS = {
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
-    callbackURL: "https://localhost:8000/discord/auth/callback",
+    callbackURL: "/discord/auth/callback",
     scope: ['identify', 'email']
 }
 

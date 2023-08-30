@@ -31,7 +31,7 @@ googleAuthRouter.get('/auth', passport.authenticate('google', {
 
 googleAuthRouter.get('/auth/callback', passport.authenticate('google',{
     failureRedirect: "/failure",
-    successRedirect: "https://test-five-blond-10.vercel.app/",
+    successRedirect: "/",
     session: true
 }), (req,res)=>{});
 

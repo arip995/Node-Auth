@@ -9,10 +9,15 @@ const githubRouter = require('./routes/githubAuth.router');
 const facebookRouter = require('./routes/facebookAuth.router');
 const linkedinRouter = require('./routes/linkedinAuth.router');
 const discordRouter = require('./routes/discordAuth.router');
+const gitlabRouter = require('./routes/gitlabAuth.router');
 const passport = require('passport');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+}));
 app.use(helmet());
 // Create a new cookie session middleware with the provided options. This middleware will attach the property session to req, which provides an object representing the loaded session. This session is either a new session if no valid session was provided in the request, or a loaded session from the request.
 
@@ -44,6 +49,8 @@ app.use('/facebook',facebookRouter);
 app.use('/linkedin',linkedinRouter);
 
 app.use('/discord',discordRouter);
+
+app.use('/gitlab', gitlabRouter);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'..', 'public', 'index.html'));

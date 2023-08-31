@@ -1,6 +1,6 @@
 const express = require('express');
 const passport = require('passport');
-const GithubStrategy = require('passport-github2');
+const GithubStrategy = require('passport-github2').Strategy;
 const githubRouter = express.Router();
 
 const config = {
@@ -29,7 +29,7 @@ githubRouter.get('/auth',passport.authenticate('github',{
 githubRouter.get('/auth/callback',passport.authenticate('github',{
     failureRedirect: "/failure",
     successRedirect: "http://localhost:3000",
-    // session: false
+    // session: true
 }));
 
 module.exports = githubRouter;

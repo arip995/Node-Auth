@@ -37,11 +37,6 @@ googleAuthRouter.get('/auth/callback', passport.authenticate('google',{
     res.redirect('http://localhost:3000')
 });
 
-googleAuthRouter.get('/auth/logout', (req,res)=>{
-    req.logOut();
-    res.redirect('/')
-});
-
 googleAuthRouter.get('/', (req,res)=>{
     res.status(200).json({name: "panda"})
 });

@@ -38,10 +38,11 @@ app.use(cookieSession({
 passport.serializeUser((user, done) => {
     done(null, user);
 });
-//Read the session from the cookie
+//Read the session from the cookie and add useful functions like logout to req
 passport.deserializeUser((obj, done) => {
     done(null, obj);
 })
+//Put the user into the req
 app.use(passport.session());
 
 app.use('/google', googleAuthRouter);

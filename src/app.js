@@ -13,6 +13,7 @@ const linkedinAuthRouter = require('./routes/linkedinAuth.router');
 const discordRouter = require('./routes/discordAuth.router');
 const gitlabRouter = require('./routes/gitlabAuth.router');
 const twitterRouter = require('./routes/twitterAuth.router');
+const amazonAuthRouter = require('./routes/amazonAuth.router')
 const jwtAuthRouter = require('./routes/jwtAuth.router');
 const passport = require('passport');
 
@@ -77,6 +78,8 @@ app.use('/twitter', twitterRouter);
 app.use('/jwt', jwtAuthRouter);
 
 app.use('/spotify', spotifyAuthRouter);
+
+app.use('/amazon', amazonAuthRouter);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));

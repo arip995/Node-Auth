@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const LinkedinStrategy = require('passport-linkedin-oauth2').Strategy;
-const linkedinRouter = express.Router();
+const linkedinAuthRouter = express.Router();
 
 const config = {
     CLIENT_ID: process.env.LINKEDIN_CLIENT_ID,
@@ -11,8 +11,7 @@ const config = {
 const AUTH_OPTIONS = {
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
-    callbackURL: "https://localhost:8000/linkedin/auth/callback",
-    scope: ['r_emailaddress', 'r_liteprofile']
+    callbackURL: "/linkedin/auth/callback",
 }
 
 function verifyCallback(accessToken, refreshToken, user, done) {
@@ -23,12 +22,15 @@ function verifyCallback(accessToken, refreshToken, user, done) {
 
 passport.use(new LinkedinStrategy(AUTH_OPTIONS,verifyCallback));
 
-linkedinRouter.get('/auth',passport.authenticate('linkedin'));
+linkedinAuthRouter.get('/auth',passport.authenticate('linkedin',{
+    scope: ['email']
+}));
 
-linkedinRouter.get('/auth/callback',passport.authenticate('linkedin',{
+
+linkedinAuthRouter.get('/auth/callback',passport.authenticate('linkedin',{
     failureRedirect: "/failure",
     successRedirect: "http://localhost:3000",
     session: false
 }));
 
-module.exports = linkedinRouter;
+module.exports = linkedinAuthRouter;

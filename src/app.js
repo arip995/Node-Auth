@@ -9,7 +9,7 @@ const spotifyAuthRouter = require('./routes/spotifyAuth.router');
 const secretRouter = require('./routes/secret.router');
 const githubRouter = require('./routes/githubAuth.router');
 const facebookRouter = require('./routes/facebookAuth.router');
-const linkedinRouter = require('./routes/linkedinAuth.router');
+const linkedinAuthRouter = require('./routes/linkedinAuth.router');
 const discordRouter = require('./routes/discordAuth.router');
 const gitlabRouter = require('./routes/gitlabAuth.router');
 const twitterRouter = require('./routes/twitterAuth.router');
@@ -66,7 +66,7 @@ app.use('/github', githubRouter);
 
 app.use('/facebook', facebookRouter);
 
-app.use('/linkedin', linkedinRouter);
+app.use('/linkedin', linkedinAuthRouter);
 
 app.use('/discord', discordRouter);
 
